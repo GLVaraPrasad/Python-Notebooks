@@ -1,0 +1,20 @@
+Recurrence Relation:
+
+In OverloadNodeHelper function we divide given problem into 2 subproblems recursively
+Each “divide” step yields two sub-problems of size 'n/2'.
+Let T(n) denote time complexity of OverloadNodeHelper on an array of size 'n'
+
+    From Master theorem:
+        T(n) = a T(n/b) + f(n)
+
+        Each Subproblem is size of n/b
+        f(n) is for combine the subproblems
+
+    In OverloadNodeHelper we divide 2 subproblems of size n/2
+    So,
+        T(n) =  T(n/2) + T(n/2) + f(n) + c for n>=1
+            c is for some constant operations
+            f(n) in OverloadNodeHelper is O(n) because we compare and store 'n' elements in dictionary
+        T(n) = 2T(n/2) + O(n)
+        T(n) = O(logn) + O(n)
+        T(n) = O(nlogn)
